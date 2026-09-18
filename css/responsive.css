@@ -1,0 +1,82 @@
+/* ============================================================
+   RESPONSIVE OVERRIDES
+   Breakpoints: 1024px, 768px, 480px
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-5);
+  }
+
+  .method-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stack-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+
+  .hero-foot { flex-direction: column; align-items: flex-start; }
+
+  /* SMM section: stack to single column */
+  .smm-row,
+  .smm-row--reverse {
+    grid-template-columns: 1fr;
+    gap: var(--s-4);
+  }
+
+  /* Reversed row: text first, media second on mobile */
+  .smm-row--reverse .smm-text  { order: 1; }
+  .smm-row--reverse .smm-media { order: 2; }
+
+  .smm-media {
+    justify-content: center;
+  }
+
+  .method-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* Content Creation section: stack to single column */
+  .cc-carousels-group,
+  .cc-edtech-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-5);
+  }
+
+  /* Reels Grid: horizontal scroll carousel on tablet & mobile */
+  .cc-reels-grid,
+  .cc-reels-grid--2 {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--s-4);
+    padding-bottom: var(--s-3);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .ig-reel-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+  }
+
+  .footer-grid { flex-direction: column; align-items: flex-start; gap: var(--s-3); }
+}
+
+@media (max-width: 480px) {
+  .hero-name { white-space: normal; }
+  .ig-reel-card { flex: 0 0 82vw; max-width: 320px; }
+  .cc-carousels-group,
+  .cc-edtech-grid { gap: var(--s-4); }
+  .ig-slide-content { padding: var(--s-3) var(--s-2); }
+  .stack-grid { grid-template-columns: 1fr; }
+  .method-grid { grid-template-columns: 1fr; }
+  .footer-social { flex-wrap: wrap; }
+}

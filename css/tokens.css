@@ -1,0 +1,90 @@
+/* ============================================================
+   NANDINI BHATTACHARYYA — DESIGN TOKENS
+   Visual Identity: 5-Color System
+   1. Soft Blush:  #FFDBDA (Primary Light Base)
+   2. Old Rose:    #DB7F8E (Primary Accent / Interactive)
+   3. Pale Slate:  #D5C5C8 (Secondary Neutral / Alt Bands / Cards)
+   4. Cool Steel:  #9DA3A4 (Cool Neutral / Metadata / Supporting)
+   5. Taupe Grey:  #604D53 (Primary Dark Anchor / Core Typography)
+   ============================================================ */
+
+:root {
+  /* ---- Core Color Identity (Grey turned to White) ---- */
+  --c-blush:      #FFDBDA;
+  --c-rose:       #DB7F8E;
+  --c-slate:      #FFFFFF;               /* Pale Slate grey turned to White */
+  --c-steel:      #FFFFFF;               /* Cool Steel grey turned to White */
+  --c-taupe:      #FFFFFF;               /* Taupe Grey turned to White */
+
+  /* Light & Alt section bands */
+  --blush:        #FFDBDA;
+  --blush-alt:    #FFFFFF;               /* Pure white background for alt section bands */
+  --blush-deep:   #FFFFFF;               /* Pure white card & tile fills */
+
+  /* Inverted / Section Surfaces (White bands) */
+  --ink:          #FFFFFF;
+  --ink-soft:     #F9F6F6;
+
+  /* Typography (Deep dark anchor for crisp legibility on White and Soft Blush) */
+  --text:         #2C2225;
+  --text-2:       rgba(44, 34, 37, 0.72);
+  --text-muted:   #8C7B80;
+
+  /* Typography on inverted/white surfaces */
+  --text-inv:     #2C2225;
+  --text-inv-2:   rgba(44, 34, 37, 0.72);
+  --text-inv-muted: #8C7B80;
+
+  /* Accent = Old Rose (#DB7F8E) */
+  --accent:       #DB7F8E;
+  --accent-inv:   #DB7F8E;
+  --accent-hover: #2C2225;
+
+  /* Hairlines & Dividers */
+  --line:         rgba(44, 34, 37, 0.12);
+  --line-inv:     rgba(44, 34, 37, 0.12);
+
+  /* Type */
+  --font-display: "Clash Display", "Arial Narrow", sans-serif;
+  --font-body:    "Satoshi", "Helvetica Neue", Arial, sans-serif;
+
+  --size-hero:    clamp(1.8rem, 7vw, 9rem);
+  --size-title:   clamp(2.6rem, 7vw, 5.5rem);
+  --size-stat:    clamp(2.4rem, 5vw, 4rem);
+  --size-lg:      clamp(1.25rem, 1.8vw, 1.5rem);
+  --size-body:    1.0625rem;   /* 17px */
+  --size-sm:      0.875rem;    /* 14px */
+  --size-eyebrow: 0.75rem;     /* 12px, caps, wide-tracked */
+
+  --track-caps:   0.16em;
+  --track-display:-0.02em;
+
+  /* Spacing — 4px base, multiples only */
+  --s-1: 0.5rem;   /* 8  */
+  --s-2: 1rem;     /* 16 */
+  --s-3: 1.5rem;   /* 24 */
+  --s-4: 2rem;     /* 32 */
+  --s-5: 3rem;     /* 48 */
+  --s-6: 4rem;     /* 64 */
+  --s-7: 6rem;     /* 96 */
+  --s-8: 8rem;     /* 128 */
+
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --section-pad: clamp(6rem, 12vh, 9rem);
+
+  /* Radius — binary grammar: 20px rounded frames, 999px pills */
+  --r-frame: 20px;
+  --r-pill:  999px;
+
+  /* Motion System — Cohesive Tokens */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);       /* Primary smooth deceleration */
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);       /* Fluid organic transitions */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);      /* Symmetrical state transitions */
+  --ease-spring: cubic-bezier(0.34, 1.3, 0.64, 1);    /* Restrained, subtle elastic pop */
+
+  --dur-fast:    180ms;                               /* Fast micro-interactions & hovers */
+  --dur-micro:   180ms;                               /* Backward compatibility */
+  --dur-med:     320ms;                               /* Component & header transitions */
+  --dur-move:    320ms;                               /* Backward compatibility */
+  --dur-slow:    650ms;                               /* Section entrances & reveals */
+}

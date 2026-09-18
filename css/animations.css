@@ -1,0 +1,123 @@
+/* ============================================================
+   ANIMATION LAYER
+   All motion is opt-out via prefers-reduced-motion.
+   ============================================================ */
+
+/* ---- Loader — split curtain ------------------------------ */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  animation: autoDismissLoader 0.4s ease-out 1.2s forwards;
+}
+.loader-half {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: var(--ink);
+  will-change: transform;
+}
+.loader-top    { top: 0; }
+.loader-bottom { bottom: 0; }
+.loader.is-done { display: none; }
+
+@keyframes autoDismissLoader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* ---- Reveal primitives (JS drives these with GSAP) -------- */
+
+.reveal-line { overflow: hidden; display: block; }
+
+/* Pre-hidden only when JS + motion are both active */
+.motion-ok .will-reveal { opacity: 0; }
+
+/* ---- Custom cursor (fine pointers only) ------------------- */
+
+.cursor-blend,
+.cursor-label {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 9998;
+  pointer-events: none;
+  display: none;
+}
+
+@media (pointer: fine) {
+  .motion-ok .cursor-blend,
+  .motion-ok .cursor-label {
+    display: block;
+  }
+
+  /* High-resolution vector circle + difference blend = live negative / x-ray inversion
+     Rendered at 48px base so scaled down to ~10px or scaled to 48px/60px it stays
+     100% vector-smooth and antialiased on all screen resolutions with zero pixelation. */
+  .cursor-blend {
+    width: 48px;
+    height: 48px;
+    margin: -24px 0 0 -24px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    mix-blend-mode: difference;
+    will-change: transform, opacity;
+    opacity: 0;
+    transform: scale(0.2083);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    outline: 1px solid transparent;
+    transition: opacity var(--dur-fast) var(--ease-out);
+  }
+  .cursor-blend.is-visible {
+    opacity: 1;
+  }
+
+  .cursor-label {
+    margin: 16px 0 0 16px;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--r-pill);
+    background: #2C2225;
+    color: #FFDBDA;
+    font-size: var(--size-eyebrow);
+    font-weight: 700;
+    letter-spacing: var(--track-caps);
+    text-transform: uppercase;
+    opacity: 0;
+    transform: scale(0.85);
+    transform-origin: top left;
+    transition: opacity var(--dur-fast) var(--ease-out),
+                transform var(--dur-fast) var(--ease-out);
+    box-shadow: 0 4px 16px rgba(44, 34, 37, 0.25);
+  }
+  .cursor-label.is-on {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---- Prefers-reduced-motion: full graceful fallback ------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+
+  .loader { display: none !important; }
+  .cursor-blend, .cursor-label { display: none !important; }
+  .will-reveal, .stat, .method-card, .ai-workflow, .stack-tile, .contact-grid {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .ticker-track { animation: none !important; }
+}
+
