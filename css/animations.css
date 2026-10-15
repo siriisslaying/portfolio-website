@@ -114,7 +114,7 @@
 
   .loader { display: none !important; }
   .cursor-blend, .cursor-label { display: none !important; }
-  .will-reveal, .stat, .method-card, .ai-workflow, .stack-tile, .contact-grid {
+  .will-reveal, .stat, .method-card, .stack-tile, .contact-grid {
     opacity: 1 !important;
     transform: none !important;
   }

@@ -80,7 +80,6 @@
     ".will-reveal",
     ".stat",
     ".method-card",
-    ".ai-workflow",
     ".stack-tile",
     ".contact-grid",
   ].join(", ");
