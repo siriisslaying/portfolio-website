@@ -389,43 +389,8 @@ a { color: inherit; }
   text-align: right;
 }
 
-/* ---- Ticker (marquee) ------------------------------------- */
 
-.ticker-band {
-  padding-top: var(--s-6);
-  padding-bottom: var(--s-6);
-  overflow: hidden;
-}
-.ticker-eyebrow { text-align: center; margin-bottom: var(--s-5); }
-.ticker { overflow: hidden; }
-.ticker-track {
-  display: flex;
-  align-items: center;
-  gap: var(--s-8);
-  width: max-content;
-  animation: ticker 28s linear infinite;
-}
-.ticker:hover .ticker-track { animation-play-state: paused; }
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.mark {
-  display: flex;
-  align-items: center;
-  gap: var(--s-2);
-  color: var(--text-inv-2);
-  flex-shrink: 0;
-}
-.mark i {
-  font-style: normal;
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 1.125rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
+
 
 /* ---- 4. Skill Showcase ------------------------------------ */
 
