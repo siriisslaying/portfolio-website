@@ -1255,24 +1255,31 @@ a { color: inherit; }
 .stack-grid {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--s-2);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-3);
 }
 .stack-tile {
   border: 1px solid var(--line);
   border-radius: var(--r-frame);
-  padding: var(--s-4) var(--s-3);
+  padding: var(--s-4) var(--s-4);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 124px;
   gap: var(--s-3);
   color: var(--text-2);
   cursor: pointer;
   transform-origin: center;
   transition: color var(--dur-fast) var(--ease-out),
               background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
               transform var(--dur-fast) var(--ease-out);
 }
-.stack-tile:hover { color: var(--text); background: var(--blush-deep); }
+.stack-tile:hover {
+  color: var(--text);
+  background: var(--blush-deep);
+  border-color: var(--accent);
+}
 .stack-tile:active { transform: scale(0.96); }
 .stack-tile span {
   font-family: var(--font-display);
